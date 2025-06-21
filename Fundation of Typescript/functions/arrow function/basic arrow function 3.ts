@@ -12,4 +12,6 @@ var signUpUser = (name: string, email: string, password: any, isActive: boolean)
 }
 
 // Call signUpUser with sample data and store the result in signup_var
-let signup_var = signUpUser("cisco", "Cisco@dev.com", '@123', true);
+signUpUser("cisco", "Cisco@dev.com", '@123', true);
+
+export{}
