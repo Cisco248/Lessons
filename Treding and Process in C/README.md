@@ -28,19 +28,19 @@ Before running any threading code in C, ensure the following are installed and c
 
 4. **Update Windows Environment Path**
 
-- Add this to the User Path variable:
+   - Add this to the User Path variable:
 
-```makefile
-C:\msys64\ucrt64\bin
-```
+   ```makefile
+   C:\msys64\ucrt64\bin
+   ```
 
 5. **Verify installation**
 
-```sh
-gcc --version
-g++ --version
-gdb --version
-```
+   ```sh
+   gcc --version
+   g++ --version
+   gdb --version
+   ```
 
 ## 💻 Set Up Visual Studio Code
 
