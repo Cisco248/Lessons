@@ -1,16 +1,22 @@
+// ============================================================
+// OPTIONAL & READONLY OBJECT PROPERTIES
+// ============================================================
+
 interface Student {
-  id: number;
-  name: string;
-  email?: string;           // optional
-  readonly enrolledYear: number; // cannot be changed
+    readonly id: number;
+    name: string;
+    email?: string;
+    readonly enrolledYear: number;
 }
 
 const student: Student = {
-  id: 1,
-  name: "Sara",
-  enrolledYear: 2022
+    id: 1,
+    name: "Sara",
+    enrolledYear: 2022,
 };
 
-// student.enrolledYear = 2023; ❌ Error: Cannot assign to 'enrolledYear'
+student.name = "Sarah";
+student.email = "sara@school.com";
+// student.enrolledYear = 2023;  // Error: readonly
 
-export {}
+export { Student, student };

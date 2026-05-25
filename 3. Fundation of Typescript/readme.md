@@ -1,138 +1,136 @@
-# 📘 Typescript for Everyone
+# TypeScript for Everyone
 
-> A brief one-liner explaining what the project does and why it matters.
+A structured **TypeScript learning repository** with hands-on lesson files, examples, and a browser use-case project. Each topic folder includes `.ts` lessons and a `readme.md` index.
 
 ---
 
 ## Table of Contents
 
 - [About](#about)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Scripts](#scripts)
-- [Project Structure](#project-structure)
-- [Technologies Used](#technologies-used)
-- [Features](#features)
+- [Getting Started](#getting-started)
 - [Lessons](#lessons)
-- [Code Examples](#code-examples)
-- [Contributing](#contributing)
+- [Project Structure](#project-structure)
+- [Running Lessons](#running-lessons)
 - [License](#license)
 
 ---
 
 ## About
 
-This project demonstrates how to build a [describe purpose] using **TypeScript**. It includes core features such as:
+This course covers TypeScript fundamentals:
 
-- Type safety
-- Interface and class usage
-- Generics
-- Modular structure
+- Variables, types, and type safety
+- Objects, interfaces, tuples, and unions
+- Functions, enums, generics, and classes
+- A practical browser demo (use case)
 
 ---
 
-## Installation
+## Getting Started
 
-### ✅ Requirements
+### Requirements
 
-- [Node.js](https://nodejs.org/)
-- npm (comes with Node.js)
+- [Node.js](https://nodejs.org/) (includes npm)
 
-### ✅ Steps
-
-```bash
-# Navigate to the project folder
-cd your-repo-name
-# Install dependencies
-npm install
-```
-
-## Usage
+### Run a lesson file
 
 ```bash
-# Start development build
-npm run dev
-# Compile TypeScript to JavaScript
-npm run build
-# Run the compiled JavaScript
-node dist/index.js
+npx ts-node "3. Fundation of Typescript/variables/number.ts"
 ```
 
-Or use:
+### Run the browser use case
 
 ```bash
-# Run TypeScript directly
-npx ts-node src/index.ts
+cd "3. Fundation of Typescript/use case"
+npx tsc
+# Open index.html in your browser
 ```
 
-## Scripts
-
-| Script        | Description                     |
-| ------------- | ------------------------------- |
-| npm run dev   | Run in watch mode using ts-node |
-| npm run build | Compile .ts files to /dist      |
-| npm start     | Run compiled app from /dist     |
-
-## Project Structure
-
-```pgsql
-your-repo-name/
-├── dist/ # Compiled JavaScript output
-├── src/ # TypeScript source files
-│ └── index.ts
-├── node_modules/
-├── package.json
-├── tsconfig.json
-├── README.md
-```
-
-## Technologies Used
-
-- TypeScript
-- Node.js
-- ts-node
-- (Optional) Express, MongoDB, etc.
-
-## Features
-
-- Strict type-checking
-- Reusable functions
-- Interface and type usage
-- Project scaffold for scalable development
+---
 
 ## Lessons
 
-### Table of Lessons
+| Topic | Folder | Readme |
+|-------|--------|--------|
+| Variables | [variables](./variables/) | [readme](./variables/readme.md) |
+| Arrays | [arrays](./arrays/) | [readme](./arrays/readme.md) |
+| Tuples | [tuples](./tuples/) | [readme](./tuples/readme.md) |
+| Objects | [objects](./objects/) | [readme](./objects/readme.md) |
+| Interfaces | [interfaces](./interfaces/) | [readme](./interfaces/readme.md) |
+| Types | [types](./types/) | [readme](./types/readme.md) |
+| Unions | [unions](./unions/) | [readme](./unions/readme.md) |
+| Enums | [enums](./enums/) | [readme](./enums/readme.md) |
+| Functions | [functions](./functions/) | [readme](./functions/readme.md) |
+| Generics | [generics](./generics/) | [readme](./generics/readme.md) |
+| Classes | [classes](./classes/) | [readme](./classes/readme.md) |
+| Use Case | [use case](./use%20case/) | [readme](./use%20case/readme.md) |
 
-- [Variables](./variables)
-- [Arrays](./arrays/readme.md)
-- [Tuples](./tuples/tuple-guide.md)
-- [Objects](./objects/readme.md)
-- [Interfaces](./interfaces/interfaces-guide.md)
-- [Types](./types/type-one-guide.md)
-- [Genarics](./genarics/readme.md)
-- [E-nums](./enums/readme.md)
-- [Functions](./functions/readme.md)
-- [Classes](./classes/readme.md)
-- [Unions](./unions/readme.md)
-- [Use Case](./use%20case/src/index.ts)
+---
 
-## Code Examples
+## Project Structure
 
-```ts
-function greet(name: string): string {
-  return `Hello, ${name}`;
-}
+```
+3. Fundation of Typescript/
+├── readme.md
+├── variables/          # let, const, string, number, boolean
+├── arrays/             # Array methods by type
+├── tuples/             # Fixed-length typed arrays
+├── objects/            # Object types, methods, calls
+├── interfaces/         # Interface definitions & extends
+├── types/              # Type aliases & intersections
+├── unions/             # Union types & narrowing
+├── enums/              # Numeric, string, const enums
+├── functions/          # Traditional & arrow functions
+├── generics/           # Generic functions, classes, utilities
+├── classes/            # OOP: public, private, protected, abstract
+└── use case/           # Browser demo (HTML + TS)
 ```
 
-## Contributing
+---
 
-Contributions are welcome! Please fork the repo and submit a pull request.
+## Running Lessons
+
+**Single file:**
+
+```bash
+npx ts-node "3. Fundation of Typescript/interfaces/basic Interfaces.ts"
+```
+
+**Type-check without running:**
+
+```bash
+npx tsc --noEmit "3. Fundation of Typescript/unions/basic union.ts"
+```
+
+---
+
+## Learning path (recommended order)
+
+1. Variables → Types → Objects → Interfaces
+2. Functions → Unions → Tuples → Arrays
+3. Enums → Classes → Generics
+4. Use Case (apply basics in browser)
+
+---
+
+## Code example
+
+```ts
+interface User {
+  name: string;
+  age: number;
+}
+
+function greet(user: User): string {
+  return `Hello, ${user.name}`;
+}
+
+const user: User = { name: "Lahiru", age: 25 };
+console.log(greet(user));
+```
+
+---
 
 ## License
 
-This project is licensed under the MIT License.
-
-```yaml
-Let me know if you want a customized version for your specific project (e.g., web app, CLI tool, API, etc.) or want it generated as a downloadable project template!
-```
+MIT License — free for tutorials, courses, and personal learning.

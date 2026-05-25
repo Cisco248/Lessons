@@ -1,44 +1,46 @@
-/**
- * Interface defining the structure and methods for a course-like object.
- */
-interface Interface {
-  param_1: string;    // A string parameter (e.g., course name)
-  param_2: number;    // A numeric parameter (e.g., course price)
+// ============================================================
+// FUNCTION METHODS ON OBJECTS & INTERFACES
+// ============================================================
 
-  /**
-   * Returns a formatted string combining param_1 and param_2.
-   * @returns A string combining param_1 and param_2
-   */
-  Method_One(): string;
-
-  /**
-   * Accepts a number and returns it unchanged.
-   * @param param_3 - A number input
-   * @returns The same number received as input
-   */
-  Method_Two(param_3: number): number;
+interface Course {
+    name: string;
+    price: number;
+    getSummary(): string;
+    applyDiscount(percent: number): number;
 }
 
-/**
- * Factory function to create an object implementing the Interface.
- *
- * @param param_1 - The first parameter, typically a string
- * @param param_2 - The second parameter, typically a number
- * @returns An object that implements Interface with two methods
- */
-function Function_One(param_1: string, param_2: number): Interface {
-  return {
-    param_1,      // Assign param_1 to the object property
-    param_2,      // Assign param_2 to the object property
+function createCourse(name: string, price: number): Course {
+    return {
+        name,
+        price,
 
-    // Method that returns a combined string of param_1 and param_2
-    Method_One() {
-      return `${this.param_1}, ${this.param_2}`;
+        getSummary() {
+            return `${this.name} — $${this.price}`;
+        },
+
+        applyDiscount(percent: number) {
+            return this.price * (1 - percent / 100);
+        },
+    };
+}
+
+const course = createCourse("TypeScript 101", 49.99);
+const summary = course.getSummary();
+const salePrice = course.applyDiscount(20);
+
+// Method shorthand in object literal
+const calculator = {
+    value: 0,
+    add(n: number) {
+        this.value += n;
+        return this;
     },
+    reset() {
+        this.value = 0;
+    },
+};
 
-    // Method that returns the number passed in param_3
-    Method_Two(param_3: number) {
-      return param_3;
-    }
-  };
-}
+calculator.add(5).add(3);
+console.log(summary, salePrice, calculator.value);
+
+export { createCourse, course, calculator, summary, salePrice };

@@ -1,17 +1,24 @@
-/**
- * Signs up a user with provided details.
- *
- * @param name - The name of the user
- * @param email - The user's email address
- * @param password - The user's chosen password
- * @param isActive - A boolean indicating if the user is active
- * @returns A combined string of name, email, and password
- */
-var signUpUser = (name: string, email: string, password: any, isActive: boolean) => {
-    return `${name} ${email} ${password}`;
-}
+// ============================================================
+// ARROW FUNCTIONS — MULTI-PARAM & OBJECT RETURN
+// ============================================================
 
-// Call signUpUser with sample data and store the result in signup_var
-signUpUser("cisco", "Cisco@dev.com", '@123', true);
+const signUpUser = (
+    name: string,
+    email: string,
+    password: string,
+    isActive: boolean
+): string => `${name} ${email} ${password} active:${isActive}`;
 
-export{}
+const createProfile = (
+    name: string,
+    age: number
+): { name: string; age: number; createdAt: string } => ({
+    name,
+    age,
+    createdAt: new Date().toISOString(),
+});
+
+const signup_var = signUpUser("Lahiru", "lahiru@dev.com", "secret", true);
+const profile = createProfile("Alex", 28);
+
+export { signUpUser, createProfile, signup_var, profile };

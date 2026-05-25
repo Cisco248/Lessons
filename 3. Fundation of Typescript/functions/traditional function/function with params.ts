@@ -1,15 +1,28 @@
-/**
- * Sign-up function to collect user details
- *
- * @param name - User's name
- * @param email - User's email
- * @param password - User's password
- * @param isPaid - Boolean indicating if the user has paid
- * @returns A combined string with all user data
- */
-function signUpUser(name: string, email: string, password: any, isPaid: boolean) {
-    return `${name}, ${email}, ${password}, ${isPaid}`;
+// ============================================================
+// FUNCTION PARAMETERS — REQUIRED & TYPED
+// ============================================================
+
+function signUpUser(
+    name: string,
+    email: string,
+    password: string,
+    isPaid: boolean
+): string {
+    return `${name}, ${email}, ${password}, paid: ${isPaid}`;
 }
 
-// Call signUpUser and store result in 'su'
-signUpUser("cisco", "cisco@dev.com", "@123", true)
+// Multiple types in parameters
+function describe(value: string | number): string {
+    return `Type: ${typeof value}, Value: ${value}`;
+}
+
+// Object parameter (inline type)
+function printUser(user: { name: string; age: number }): void {
+    console.log(`${user.name} is ${user.age}`);
+}
+
+const signup = signUpUser("Lahiru", "lahiru@dev.com", "secret", true);
+const desc = describe(42);
+printUser({ name: "Alex", age: 30 });
+
+export { signUpUser, describe, printUser, signup, desc };

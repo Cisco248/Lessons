@@ -1,37 +1,28 @@
-/**
- * Accepts a user object with 'name' (string) and 'isPaid' (boolean).
- * The function doesn't return anything (void by default).
- *
- * @param param0 - Object with 'name' and 'isPaid' properties
- */
-function Function_One({ name: string, isPaid: boolean }) {}
+// ============================================================
+// PASSING OBJECTS TO FUNCTIONS (DESTRUCTURING)
+// ============================================================
 
-// A new user object with additional 'email' property
-let Object_One = {
-    name: "name",
-    isPaid: false,
-    email: "name@dev.com"
-};
-
-// Call createUser with the newUser object
-Function_One(Object_One);
-
-/**
- * Accepts a user object with 'name' (string) and 'isPaid' (boolean).
- * The function does not return anything (void).
- *
- * @param param0 - Object containing 'name' and 'isPaid' properties
- */
-function Function_Two({ name, isPaid }: { name: string; isPaid: boolean }){
-    console.log(`${name}, ${isPaid}`);
+interface UserPayload {
+    name: string;
+    isPaid: boolean;
+    email?: string;
 }
 
-// A new user object with additional 'email' property
-let Object_two = {
-    name: "name",
+function createUser({ name, isPaid }: UserPayload): void {
+    console.log(`${name}, paid: ${isPaid}`);
+}
+
+function updateUser(user: UserPayload): UserPayload {
+    return { ...user, isPaid: true };
+}
+
+const newUser: UserPayload = {
+    name: "Lahiru",
     isPaid: false,
-    email: "name@dev.com"
+    email: "lahiru@dev.com",
 };
 
-// Call createUser with the newUser object
-Function_Two(Object_two);
+createUser(newUser);
+const updated = updateUser(newUser);
+
+export { UserPayload, createUser, updateUser, newUser, updated };

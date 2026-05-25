@@ -1,17 +1,22 @@
-// Define a type with a readonly and optional property
-type Type_One = {
-    readonly _param_1: string;  // Optional and readonly string
-    param_2: number;             // Editable number
-    param_3: boolean;            // Editable boolean
-}
+// ============================================================
+// OPTIONAL & READONLY ON TYPE ALIASES
+// ============================================================
 
-const Variable_One: Type_One = {
-    _param_1: 'readonly string',
-    param_2: 2,
-    param_3: true
-}
+type Config = {
+    readonly apiUrl: string;
+    timeout: number;
+    retries?: number;
+    debug?: boolean;
+};
 
-// ❌ Invalid update: _param_1 is readonly and cannot be modified
-Variable_One._param_1 = 'new string';
+const config: Config = {
+    apiUrl: "https://api.example.com",
+    timeout: 5000,
+    retries: 3,
+};
 
-export {};
+// config.apiUrl = "other";  // Error: readonly
+config.timeout = 3000;
+config.debug = true;
+
+export { Config, config };

@@ -1,12 +1,23 @@
-function createUser(name: string, age: number) {
-  return {
-    name,
-    age,
-    greet() {
-      return `Hello, ${name}`;
-    }
-  };
-}
+// ============================================================
+// OBJECTS WITH METHODS (FUNCTION PROPERTIES)
+// ============================================================
 
-const user = createUser("Lahiru", 25);
-console.log(user.greet()); // Hello, Lahiru
+const calculator = {
+    value: 0,
+    add(n: number) {
+        this.value += n;
+        return this;
+    },
+    subtract(n: number) {
+        this.value -= n;
+        return this;
+    },
+    getResult() {
+        return this.value;
+    },
+};
+
+calculator.add(10).add(5).subtract(3);
+const result = calculator.getResult();
+
+export { calculator, result };

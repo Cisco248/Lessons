@@ -1,11 +1,26 @@
-interface Config {
-  [key: string]: string;
-}
+// ============================================================
+// INDEX SIGNATURES (DYNAMIC PROPERTIES)
+// ============================================================
 
-const settings: Config = {
-  theme: "dark",
-  layout: "grid",
-  language: "en"
+type StringDictionary = {
+    [key: string]: string;
 };
 
-export {}
+const translations: StringDictionary = {
+    hello: "Ayubowan",
+    goodbye: "ආයුබෝවන්",
+};
+
+type FlexibleScores = {
+    name: string;
+    [subject: string]: string | number;
+};
+
+const report: FlexibleScores = {
+    name: "Lahiru",
+    math: 95,
+    science: 88,
+    english: "A",
+};
+
+export { StringDictionary, translations, FlexibleScores, report };

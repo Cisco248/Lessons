@@ -1,13 +1,17 @@
+// ============================================================
+// EXPLICIT OBJECT TYPES
+// ============================================================
+
 type User = {
-  name: string;
-  age: number;
-  isAdmin: boolean;
+    name: string;
+    age: number;
+    isAdmin: boolean;
 };
 
 const user: User = {
-  name: "Lahiru",
-  age: 25,
-  isAdmin: true
+    name: "Lahiru",
+    age: 25,
+    isAdmin: true,
 };
 
-export {}
+export { User, user };

@@ -1,20 +1,28 @@
-type Type_One = {
-  param_1: string;
-  param_2: string[];
+// ============================================================
+// INTERSECTION TYPES (&)
+// ============================================================
+
+type HasName = { name: string };
+type HasAge = { age: number };
+type Person = HasName & HasAge;
+
+const person: Person = {
+    name: "Lahiru",
+    age: 25,
 };
 
-type Type_Two = {
-  param_3?: string;
-  param_4: Date;
+type WithDates = {
+    createdAt: Date;
+    updatedAt: Date;
 };
 
-type Type_Three = Type_One & Type_Two;
+type FullRecord = HasName & HasAge & WithDates;
 
-let Variable_One: Type_Three = {
-  param_1: "string",
-  param_2: ["string_array"],
-  param_3: 'string',
-  param_4: new Date()
+const record: FullRecord = {
+    name: "Alex",
+    age: 30,
+    createdAt: new Date(),
+    updatedAt: new Date(),
 };
 
-export {}
+export { HasName, HasAge, Person, person, FullRecord, record };

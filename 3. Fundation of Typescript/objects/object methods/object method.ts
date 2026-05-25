@@ -1,75 +1,30 @@
-// An object representing a user
-const User = {
-    name: "cisco",
-    email: "cisco@dev.com",
-    isActive: true
+// ============================================================
+// OBJECT METHODS — BUILT-IN & CUSTOM
+// ============================================================
+
+const user = { name: "Lahiru", age: 25, role: "admin" };
+
+// Object.keys() — property names
+const keys = Object.keys(user);
+
+// Object.values() — property values
+const values = Object.values(user);
+
+// Object.entries() — [key, value] pairs
+const entries = Object.entries(user);
+
+// Object.assign() — merge objects
+const extra = { email: "lahiru@dev.com" };
+const merged = Object.assign({}, user, extra);
+
+// Custom method on object
+const greeter = {
+    name: "World",
+    greet(this: { name: string }) {
+        return `Hello, ${this.name}`;
+    },
 };
 
+const greeting = greeter.greet();
 
-// ----- Object Methods -----
-
-/**
-*
-* 1. Object.keys(obj)
-* Returns an array of the object's own property names.
-* @returns ["name", "email", "isActive"]
-*
-*/
-console.log(Object.keys(User));
-
-/**
-*
-* 2. Object.values(obj)
-* Returns an array of the object's own property values
-* @returns ["cisco", "cisco@dev.com", true]
-*
-*/
-console.log(Object.values(User));
-
-/**
-*
-* 3. Object.entries(obj)
-* Returns an array of key-value pairs.
-* @returns [["name", "cisco"], ["email", "cisco@dev.com"], ["isActive", true]]
-*
-*/
-console.log(Object.entries(User));
-
-/**
-*
-* 4. hasOwnProperty()
-* Checks if the object has a specific property (not from prototype chain).
-* @returns true || false
-*
-*/
-console.log(User.hasOwnProperty("email"))
-console.log(User.hasOwnProperty("password"))
-
-/**
-*
-* 5. Access and modify properties
-* Change object access modifications.
-* @returns false
-*
-*/
-User.isActive = false;
-
-/**
-*
-* 6. delete property
-* Change object access modifications.
-* @returns not found
-*
-*/
-// delete User.email
-console.log(User.email)
-
-/**
-*
-* 7. Object.freeze(obj)
-* Prevents modification of the object properties.
-* @returns This will not change the name in strict mode
-*
-*/
-Object.freeze(User)
-User.name = "newname"
+export { user, keys, values, entries, merged, greeter, greeting };

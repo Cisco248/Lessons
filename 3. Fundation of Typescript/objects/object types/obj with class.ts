@@ -1,13 +1,20 @@
-class Course {
-  constructor(
-    public title: string,
-    public price: number
-  ) {}
+// ============================================================
+// OBJECTS FROM CLASSES
+// ============================================================
 
-  getDetails(): string {
-    return `${this.title} - $${this.price}`;
-  }
+class UserAccount {
+    constructor(
+        public name: string,
+        public email: string,
+        private password: string
+    ) {}
+
+    greet(): string {
+        return `Hello, ${this.name}`;
+    }
 }
 
-const tsCourse = new Course("TypeScript", 200);
-console.log(tsCourse.getDetails()); // "TypeScript - $200"
+const account = new UserAccount("Lahiru", "lahiru@dev.com", "secret");
+const message = account.greet();
+
+export { UserAccount, account, message };

@@ -1,7 +1,23 @@
-type Type_One = string | number;
+// ============================================================
+// UNION TYPE ALIAS
+// ============================================================
 
-let Variable_One: Type_One = 1;
+type StringOrNumber = string | number;
 
-Variable_One = 'string';  // also valid
+let value: StringOrNumber = 1;
+value = "hello";
 
-export {}
+type Result = { success: true; data: string } | { success: false; error: string };
+
+function handle(result: Result): void {
+    if (result.success) {
+        console.log(result.data);
+    } else {
+        console.error(result.error);
+    }
+}
+
+handle({ success: true, data: "OK" });
+handle({ success: false, error: "Failed" });
+
+export { StringOrNumber, Result, value, handle };

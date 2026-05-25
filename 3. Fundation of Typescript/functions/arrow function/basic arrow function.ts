@@ -1,13 +1,22 @@
-/**
- * Logs in a user using username and password.
- *
- * @param username - The username of the user
- * @param password - The user's password (any type for flexibility)
- * @returns A combined string of username and password
- */
-let loginUser = (username: string, password: any) => {
-    return `${username} ${password}`;
-}
+// ============================================================
+// BASIC ARROW FUNCTIONS
+// ============================================================
 
-// Call loginUser with sample data and store the result in log_var
-let log_var = loginUser("cisco", '@123');
+const loginUser = (username: string, password: string): string => {
+    return `${username} logged in`;
+};
+
+const getHello = (text: string): string => {
+    return `Hello ${text}`;
+};
+
+// Implicit return (single expression, no braces)
+const double = (n: number) => n * 2;
+
+const log_var = loginUser("Lahiru", "secret");
+const hello = getHello("World");
+const doubled = double(5);
+
+console.log(log_var, hello, doubled);
+
+export { loginUser, getHello, double, log_var, hello, doubled };

@@ -1,16 +1,29 @@
-type Type_One = {
-  param_1: string;
-  param_2: number;
-  param_3: boolean;
+// ============================================================
+// OBJECT TYPE ALIASES
+// ============================================================
+
+type Point = {
+    x: number;
+    y: number;
 };
 
-let Variable_One: Type_One = {
-    param_1: 'string',
-    param_2: 1,
-    param_3: true
-}
+type Circle = {
+    center: Point;
+    radius: number;
+};
 
-// ✅ Valid updates to editable fields
-Variable_One.param_1 = 'new string';
-Variable_One.param_2 = 2;
-Variable_One.param_3 = false;
+const circle: Circle = {
+    center: { x: 0, y: 0 },
+    radius: 10,
+};
+
+type StringMap = {
+    [key: string]: string;
+};
+
+const labels: StringMap = {
+    submit: "Submit",
+    cancel: "Cancel",
+};
+
+export { Point, Circle, circle, StringMap, labels };

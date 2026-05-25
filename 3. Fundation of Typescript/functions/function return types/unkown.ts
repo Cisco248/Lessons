@@ -1,5 +1,2 @@
-function returnUnknown(): unknown {
-  return "could be anything";
-}
-
-/** */
+// Re-export from unknown.ts (typo filename kept for backward compatibility)
+export * from "./unknown";

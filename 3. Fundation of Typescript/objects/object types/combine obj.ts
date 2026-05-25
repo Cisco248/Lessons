@@ -1,11 +1,19 @@
-type A = { a: string };
-type B = { b: number };
+// ============================================================
+// COMBINING OBJECT TYPES (INTERSECTION)
+// ============================================================
 
-type Combined = A & B;
+type HasName = { name: string };
+type HasAge = { age: number };
+type Person = HasName & HasAge;
 
-const obj: Combined = {
-  a: "value",
-  b: 123
+const person: Person = {
+    name: "Lahiru",
+    age: 25,
 };
 
-export {}
+// Spread to merge runtime objects
+const defaults = { theme: "dark", lang: "en" };
+const userPrefs = { lang: "si" };
+const settings = { ...defaults, ...userPrefs };
+
+export { HasName, HasAge, Person, person, settings };

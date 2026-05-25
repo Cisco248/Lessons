@@ -1,26 +1,29 @@
-// Declare a variable 'hero' (any type)
-let hero: any;
+// ============================================================
+// REGULAR FUNCTIONS — DECLARATION & HOISTING
+// ============================================================
 
-/**
- * Returns the name of a hero
- * @returns A string "thor"
- */
-function getHero() {
+// Function declarations are hoisted — can be called before definition
+const resultBefore = multiply(3, 4);   // 12
+
+function multiply(x: number, y: number): number {
+    return x * y;
+}
+
+// Assign function reference to a variable (not calling it)
+function getHero(): string {
     return "thor";
 }
 
-// Assign the function reference to 'hero'
-hero = getHero;
+const heroRef: () => string = getHero;
+const heroName = heroRef();            // "thor" — call via reference
 
-// Print the function reference (not executed)
-console.log(hero);
+// Function as a value type
+type MathFn = (a: number, b: number) => number;
 
+const divide: MathFn = function (a, b) {
+    return a / b;
+};
 
+console.log(resultBefore, heroName, divide(10, 2));
 
-// Function that adds 2 to a given number
-function addTwo(num) {
-    return num + 2;
-}
-
-// Call addTwo and print result
-console.log(addTwo(5));
+export { multiply, getHero, heroRef, heroName, divide, resultBefore };
